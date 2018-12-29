@@ -1,0 +1,17 @@
+<div [ngClass]="getPostClass()">
+  <table [ngStyle]="{backgroundColor: getPostColor()}" width="600">
+  <tr>
+    <td><h2>{{post.title}}</h2></td>
+    <td>{{post.created_at | date: 'short' }}</td>
+  </tr>
+  <tr>
+    <td>{{post.content}}</td>
+  </tr>
+<tr>
+  <button class="btn btn-success"
+          (click)="post.loveIts = post.loveIts+1">Love it!</button>
+  <button class="btn btn-danger"
+          (click)="post.loveIts = post.loveIts-1">Don't love it!</button>
+</tr>
+</table>
+</div>
