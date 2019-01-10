@@ -2,24 +2,28 @@
   <table [ngStyle]="{backgroundColor: getPostColor()}" width="600">
   <tr>
     <td><h2>{{post.title}}</h2></td>
-    <td>{{post.created_at | date: 'short' }}</td>
+    <td class="pull-right">{{post.created_at | date: 'short' }}</td>
   </tr>
   <tr>
     <td>{{post.content}}</td>
   </tr>
 <tr>
+  <tr>
   <!--<button class="btn btn-success"-->
           <!--(click)="post.loveIts = post.loveIts+1">Love it!</button>-->
   <!--<button class="btn btn-danger"-->
           <!--(click)="post.loveIts = post.loveIts-1">Don't love it!</button>-->
+    <td>
   <button class="btn btn-success"
           (click)="increaseLoveIts()">Love it!</button>
   <button class="btn btn-danger"
           (click)="decreaseLoveIts()">Don't love it!</button>
+    </td>
+    <td>
   <button class="btn btn-danger pull-right" (click)="onDeletePost(post)">
-    <span class="glyphicon glyphicon-minus">Supprimer</span>
+    <span class="glyphicon glyphicon-minus"></span>
   </button>
-
+    </td>
 </tr>
 </table>
 </div>
