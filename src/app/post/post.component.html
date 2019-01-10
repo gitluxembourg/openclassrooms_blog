@@ -8,10 +8,18 @@
     <td>{{post.content}}</td>
   </tr>
 <tr>
+  <!--<button class="btn btn-success"-->
+          <!--(click)="post.loveIts = post.loveIts+1">Love it!</button>-->
+  <!--<button class="btn btn-danger"-->
+          <!--(click)="post.loveIts = post.loveIts-1">Don't love it!</button>-->
   <button class="btn btn-success"
-          (click)="post.loveIts = post.loveIts+1">Love it!</button>
+          (click)="increaseLoveIts()">Love it!</button>
   <button class="btn btn-danger"
-          (click)="post.loveIts = post.loveIts-1">Don't love it!</button>
+          (click)="decreaseLoveIts()">Don't love it!</button>
+  <button class="btn btn-danger pull-right" (click)="onDeletePost(post)">
+    <span class="glyphicon glyphicon-minus">Supprimer</span>
+  </button>
+
 </tr>
 </table>
 </div>

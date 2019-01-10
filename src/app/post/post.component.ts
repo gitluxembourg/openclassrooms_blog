@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post} from '../model/post';
+import { PostsService} from '../services/posts.service';
 
 @Component({
   selector: 'app-post',
@@ -8,7 +9,7 @@ import { Post} from '../model/post';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
+  constructor(private postsService: PostsService) { }
 @Input() post: Post;
   ngOnInit() {
   }
@@ -20,4 +21,15 @@ getPostClass() {
     else if (this.post.loveIts > 0) {return 'text-success'; }
     else {return 'text-dark'; }
 }
+onDeletePost(post: Post) {
+    this.postsService.removePost(post);
+}
+  increaseLoveIts() {
+    this.postsService.increaseLoveIts(this.post);
+    this.postsService.emitPosts();
+  }
+  decreaseLoveIts() {
+    this.postsService.decreaseLoveIts(this.post);
+    this.postsService.emitPosts();
+  }
 }
